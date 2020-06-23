@@ -2,6 +2,29 @@ mas marketplace {
 
     agent one
 
+    agent bob {
+        focus: wks.counterA
+    }
+
+    agent alice {
+        focus: wks.counterB
+    }
+
+    workspace wks {
+        artifact counterA: tools.Counter(10)
+        artifact counterB: tools.Counter(20)
+    }
+
+    organisation orgWks : org.xml {
+        group group1: group1 {
+            players: one role0
+                     bob role1
+                     alice role2
+            responsible-for: scheme1
+        }
+        scheme scheme1 : scheme1
+    }
+
     platform: jacamo.web.JCMWeb("--main 2181") // zookeeper at 2181, rest/web at $PORT env var or 8080
 
 }

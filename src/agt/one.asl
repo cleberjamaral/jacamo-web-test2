@@ -1,6 +1,6 @@
 // One agent to rule them all
 
-!launchSystem.
+
 
 +!createAgent(A, File) <-
     .create_agent(A, File, [beliefBaseClass("jason.bb.TextPersistentBB")]).
